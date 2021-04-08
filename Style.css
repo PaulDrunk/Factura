@@ -3,25 +3,14 @@ body {
     width: 100%;
 }
 
-.mt-100 {
-    margin-top: 50px
-}
-
-.mb-100 {
-    margin-bottom: 50px
-}
-
 .card {
     border-radius: 1px !important
 }
 
-
 .card-header:first-child {
     border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0
 }
-table.table-bordered > thead > tr > th{
-    border:1px solid blue;
-}
+
 
 .btn-sm,
 .btn-group-sm>.btn {
