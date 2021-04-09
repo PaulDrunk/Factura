@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
@@ -8,10 +9,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="Style.css">
     <meta charset="UTF-8">
     <title>Factura</title>
 </head>
-
 <body>
 <header style="background-color: rgb(23,63,95);">
     <div class="navbar">
@@ -20,138 +21,136 @@
                 <img src="images/factura.jpg" alt="factura logo" height="30px">
                 <strong>FACTURA</strong>
             </a>
-
             <nav class="my-3 my-md-0 mr-md-0">
                 <a class="p-2 text-white" href="#">Factura noua</a>
                 <a class="p-2 text-dark" href="#"></a>
                 <a class="p-2 text-dark" href="#"></a>
                 <a class="p-2 text-white" href="#">Tiparire</a>
             </nav>
-
         </div>
     </div>
 
 </header>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-sm-3">
+                    <h6 class="mb-3">Furnizor:</h6>
+                    <div ><label >
+                        <input style="height: 220px" type="text" class="form-control" placeholder="" name="">
+                    </label></div>
+                </div>
+                <div class="col-sm-5 text-center">
+                    <div class="arowwrap">
+                    <form class="form-horizontal mt-6">
+                            <div class="text-left ">
+                                <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FACTURA</h3>
+                            </div>
+                        <div class="control-group">
+                                    <label class="mr-4" >Nr:&nbsp;&nbsp;&nbsp;</label>
+                                    <input type="text" >
+                        </div>
 
-<div class="container-fluid" style="background-color:rgb(240,240,240) ">
+                        <div class="control-group">
+                            <label class=" mr-4">Data:</label>
+                            <input type="text ">
 
-    <div id="ui-view" class="w-80 p-3 container" >
-        <div class="card " >
-            <div class="card-body">
-                <div class="row mb-4">
-                    <div class="col-sm-4">
-                        <h6 class="mb-3">Furnizor:</h6>
-                        <div><label>
-                            <input type="text" class="form-control" placeholder="" name="email">
-                        </label></div>
-                    </div>
+                        </div>
 
-                    <div class="col-sm-4">
-                        <h2 class="mb-3">Factura</h2>
-                        <div><label>Nr</label>
-                            <label>
-                                <input type="text" class="form-control">
-                            </label></div>
-                        <div><label>Data</label>
-                            <label>
-                                <input type="text" class="form-control">
-                            </label></div>
-                        <div><label>Nr aviz</label>
-                            <label>
-                                <input type="text" class="form-control">
-                            </label></div>
-                    </div>
+                        <div class="control-group">
+                            <label class="mr-2">Nr aviz:</label>
+                            <input type="text ">
 
-                    <div class="col-sm-4">
-                        <h6 class="mb-3">Cumparator:</h6>
-                        <div><label>
-                            <input type="text" class="form-control" placeholder="" name="email">
-                        </label></div>
+                        </div>
+
+
+                    </form>
                     </div>
                 </div>
-                <div class="table-responsive-sm table-bordered">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <td class="center">Nr. crt.</td>
-                            <td class="center">Denumirea produselor sau serviciilor</td>
-                            <td class="center">U.M.</td>
-                            <td class="center">Cantitatea</td>
-                            <td class="center">Pret unitar(fara TVA) lei</td>
-                            <td class="center">Valoarea lei</td>
-                            <td class="center">Valoarea TVA lei</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr class=>
-                            <td class="center">0</td>
-                            <td class="center">1</td>
-                            <td class="center">2</td>
-                            <td class="center">3</td>
-                            <td class="center">4</td>
-                            <td class="center">5(3X4)</td>
-                            <td class="center">6</td>
-                        </tr>
-                        <tr>
-                            <td class="center"></td>
-                            <td class="center"><label>
-                                <input type="text" class="form-control" placeholder="" name="email">
-                            </label></td>
-                            <td class="center"><label>
-                                <input type="text" class="form-control" placeholder="" name="email">
-                            </label></td>
-                            <td class="center"><label>
-                                <input type="text" class="form-control" placeholder="" name="email">
-                            </label></td>
-                            <td class="center"><label>
-                                <input type="text" class="form-control" placeholder="" name="email">
-                            </label></td>
-                            <td class="center"></td>
-                            <td class="center">
-                                <button type="button" class="btn btn-danger">adauga</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="center"></td>
-                            <td class="center"></td>
-                            <td class="center"></td>
-                            <td class="center"></td>
-                            <td class="center"></td>
-                            <td class="center"></td>
-                            <td class="center"></td>
-                        </tr>
-                        <tr>
-                            <td rowspan="2">Semnatura furnizorilor</td>
-                            <td rowspan="2"></td>
-                            <td rowspan="2"></td>
-                            <td rowspan="2"></td>
-                            <td>Total</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Semnatura de primire</td>
-                            <td>Total de plata</td>
-                            <td rowspan="2"></td>
-                        </tr>
-                        </tbody>
-                    </table>
+
+                <div class="col-sm-4">
+                    <h6 align="center" class="mb-3">Cumparator:</h6>
+                    <div><label style="float: right">
+                        <input style="height: 215px; width: 220px" type="text" class="form-control" placeholder=""
+                               name="">
+                    </label></div>
                 </div>
             </div>
+            <table>
+                <tr>
+                    <th style="width: 1px">Nr. crt.</th>
+                    <th>Denumirea produselor sau serviciilor</th>
+                    <th style="width: 1px">U.M.</th>
+                    <th style="width: 1px">Cantitatea </th>
+                    <th>Pret unitar(fara TVA) lei</th>
+                    <th>Valoarea lei</th>
+                    <th>Valoarea TVA lei</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5(3X4)</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><label>
+                        <input type="text" class="form-control" placeholder="" name="">
+                    </label></td>
+                    <td><label>
+                        <input type="text" class="form-control" placeholder="" name="">
+                    </label></td>
+                    <td><label>
+                        <input type="text" class="form-control" placeholder="" name="">
+                    </label></td>
+                    <td><label>
+                        <input type="text" class="form-control" placeholder="" name="">
+                    </label></td>
+                    <td></td>
+                    <td>
+                        <button type="button" class="btn btn-danger">adauga</button>
+                    </td>
+                </tr>
+                <tr class="row-height">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Semnatura furnizor</td>
+                    <td colspan="3" rowspan="2"></td>
+                    <td>Total</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Semnatura de primire</td>
+                    <td class="alignleft" colspan="2">Total de plata</td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
-
-
-
-
-<footer class="footer text-right py-3" style="background-color: rgb(32,99,155)">
-    <div class="container">
-        <span class="pull-right">Copyright</span>
-    </div>
-</footer>
 </body>
 
+<footer class="page-footer font-small blue pt-4">
 
 
+    <div class="footer-copyright text-right py-2" style="background-color:rgb(32,99,155)">
+        <p class="container">© 2021 Copyright:</p>
+        <a href="#"> </a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 </html>
