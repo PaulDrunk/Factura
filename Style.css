@@ -20,6 +20,7 @@ body {
 .card-header:first-child {
     border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0
 }
+<<<<<<< HEAD
 table, th, td{
     border: 2px solid black;
     text-align: center;
@@ -33,6 +34,10 @@ th,td{
 }
 .row-height{
     height: 205px;
+=======
+table.table-bordered > thead > tr > th{
+    border:4px solid black;
+>>>>>>> 20d0a1138308b1b0e5fe6398a280dd175cfc3c5a
 }
 .btn-sm,
 .btn-group-sm>.btn {
@@ -41,10 +46,25 @@ th,td{
     line-height: 1.5;
     border-radius: .2rem
 }
+<<<<<<< HEAD
 .alignleft{
     text-align: left;
 }
+=======
+
+>>>>>>> 20d0a1138308b1b0e5fe6398a280dd175cfc3c5a
 .navbar-nav > li{
     padding-left:30px;
     padding-right:30px;
 }
+<<<<<<< HEAD
+=======
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+    align-content: center;
+}
+
+>>>>>>> 20d0a1138308b1b0e5fe6398a280dd175cfc3c5a
