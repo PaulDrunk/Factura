@@ -13,133 +13,300 @@
     <meta charset="UTF-8">
     <title>Factura</title>
 </head>
+
 <body>
 <header style="background-color: rgb(23,63,95);">
     <div class="navbar">
-        <div class="container justify-content-between">
-            <a href="#" class="navbar-brand d-flex align-items-center text-white display-1">
+        <div class="container">
+
+            <!--Navbar stanga sigla+img-->
+            <a href="#" class="navbar-brand text-white display-1">
                 <img src="images/factura.jpg" alt="factura logo" height="30px">
                 <strong>FACTURA</strong>
             </a>
-            <nav class="my-3 my-md-0 mr-md-0">
-                <a class="p-2 text-white" href="#">Factura noua</a>
+            <!-- Navbar dreapta-->
+            <nav class="my-3">
+                <a class="p-2 text-white" href="index.html" target="_blank">
+                    Factura noua</a>
                 <a class="p-2 text-dark" href="#"></a>
                 <a class="p-2 text-dark" href="#"></a>
-                <a class="p-2 text-white" href="#">Tiparire</a>
+                <a class="p-2 text-white" href="javascript:if(window.print)window.print()">
+                    Tiparire</a>
             </nav>
         </div>
     </div>
-
 </header>
+
 <div class="container">
     <div class="card">
         <div class="card-body">
             <div class="row mb-4">
-                <div class="col-sm-4">
-                    <h6 class="mb-3">Furnizor:</h6>
-                    <div><label>
-                        <input style="height: 220px" type="text" class="form-control" placeholder="" name="">
-                    </label></div>
+                <!--Text-area stanga-->
+                <div class="col-sm-3">
+                    <h6 align="left" class="mb-2">Furnizor:</h6>
+                    <label style="float: left" class="form-label text-left">
+                        <textarea
+                                class="form-control" rows="4" style="resize: none;height: 200px;width: 250px">
+                        </textarea>
+                    </label>
                 </div>
-                <div class="col-sm-4">
-                    <br>
-                    <br>
-                    <br>
-                    <h2 style="text-align: center" class="mb-3">FACTURA</h2>
-                    <div><label>Nr</label>
-                        <label><input type="text" class="form-control"></label></div>
+                <!--Factura mijloc-->
+                <div class="col-sm-5 text-center">
+                    <div class="arowwrap">
+                        <form class="form-horizontal mt-6">
+                            <div class="text-left ">
+                                <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+                                    FACTURA</h3>
+                            </div>
+                            <div class="control-group">
+                                <label class="mr-4">
+                                    Nr:&nbsp;&nbsp;&nbsp;
+                                </label>
+                                <input type="text">
+                            </div>
 
-                    <div><label>Data</label>
-                        <label>
-                            <input type="text" class="form-control">
-                        </label></div>
-                    <div><label>Nr aviz</label>
-                        <label>
-                            <input type="text" class="form-control">
-                        </label></div>
+                            <div class="control-group">
+                                <label class=" mr-4">
+                                    Data:
+                                </label>
+                                <input type="text ">
+
+                            </div>
+
+                            <div class="control-group">
+                                <label class="mr-2">
+                                    Nr aviz:
+                                </label>
+                                <input type="text ">
+
+                            </div>
+
+
+                        </form>
+                    </div>
                 </div>
-
+                <!--Text-area dreapta-->
                 <div class="col-sm-4">
-                    <h6 align="center" class="mb-3">Cumparator:</h6>
-                    <div><label style="float: right">
-                        <input style="height: 215px; width: 220px" type="text" class="form-control" placeholder=""
-                               name="">
-                    </label></div>
+                    <h6 align="center left">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;
+                        Cumparator:
+                    </h6>
+
+                    <label style="float: right" class="form-label text-left">
+                            <textarea
+                                    class="form-control" rows="4" style="resize: none;height: 200px;width: 250px">
+                            </textarea>
+                    </label>
+
                 </div>
             </div>
+
             <table>
                 <tr>
-                    <th style="width: 1px">Nr. crt.</th>
-                    <th>Denumirea produselor sau serviciilor</th>
-                    <th style="width: 1px">U.M.</th>
-                    <th style="width: 1px">Cantitatea </th>
-                    <th>Pret unitar(fara TVA) lei</th>
-                    <th>Valoarea lei</th>
-                    <th>Valoarea TVA lei</th>
+                    <th>Nr.<br/>Crt.</th>
+                    <th class="prodserv" colspan="2">
+                        Denumirea produselor<br/>
+                        sau serviciilor
+                    </th>
+                    <th >U.M.</th>
+                    <th >Cantitatea</th>
+                    <th >
+                        Pret unitar <br/>
+                        (fara TVA) lei
+                    </th>
+                    <th >
+                        Valoarea <br/>
+                        lei
+                    </th>
+                    <th >
+                        Valoarea <br/>
+                        TVA lei
+                    </th>
                 </tr>
+
                 <tr>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5(3X4)</td>
+                    <td >0</td>
+                    <td  colspan="2">1</td>
+                    <td >2</td>
+                    <td >3</td>
+                    <td >4</td>
+                    <td >5(3x4)</td>
                     <td>6</td>
                 </tr>
+
                 <tr>
-                    <td></td>
-                    <td><label>
-                        <input type="text" class="form-control" placeholder="" name="">
-                    </label></td>
-                    <td><label>
-                        <input type="text" class="form-control" placeholder="" name="">
-                    </label></td>
-                    <td><label>
-                        <input type="text" class="form-control" placeholder="" name="">
-                    </label></td>
-                    <td><label>
-                        <input type="text" class="form-control" placeholder="" name="">
-                    </label></td>
+                    <td ></td>
+                    <td colspan="2">
+                        <label></label>
+                        <input
+                                type="text"
+                                name="denumire produs"
+                        />
+                    </td>
+                    <td>
+                        <label></label>
+                        <input type="text" name="um"/>
+                    </td>
+                    <td>
+                        <label></label>
+                        <input
+                                type="text"
+                                name="cantitate produse"
+                        />
+                    </td>
+                    <td>
+                        <label></label>
+                        <input
+                                type="text"
+                                name="pretul unitar al produselor"
+                        />
+                    </td>
                     <td></td>
                     <td>
                         <button type="button" class="btn btn-danger">adauga</button>
                     </td>
                 </tr>
-                <tr class="row-height">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td rowspan="2">Semnatura furnizor</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows" colspan="2">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                    <td class="emptyrows">&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" rowspan="2">
+                        Semnatura<br/>
+                        furnizor
+                    </td>
                     <td colspan="3" rowspan="2"></td>
                     <td>Total</td>
-                    <td></td>
-                    <td></td>
+                    <td ></td>
+                    <td ></td>
                 </tr>
+
                 <tr>
-                    <td>Semnatura de primire</td>
-                    <td class="alignleft" colspan="2">Total de plata</td>
+                    <td >
+                        Semnatura<br/>
+                        de primire
+                    </td>
+                    <td colspan="2" class="alignleft">
+                        Total de plata
+                    </td>
                 </tr>
+
             </table>
-                </div>
-            </div>
         </div>
+    </div>
+</div>
+
 </body>
 
+<!--Copyright-->
 <footer class="page-footer font-small blue pt-4">
-
-
     <div class="footer-copyright text-right py-2" style="background-color:rgb(32,99,155)">
-        <p class="container">© 2021 Copyright:</p>
-        <a href="#"> </a>
+        <p class="container">
+            © 2021 Copyright:
+        </p>
     </div>
-    <!-- Copyright -->
 
 </footer>
-<!-- Footer -->
+
 </html>
