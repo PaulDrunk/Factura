@@ -105,9 +105,9 @@
                 </div>
             </div>
 
-            <table>
+            <table id="InvoiceTable">
                 <tr>
-                    <th>Nr.<br/>Crt.</th>
+                    <th class="">Nr.<br/>Crt.</th>
                     <th class="prodserv" colspan="2">
                         Denumirea produselor<br/>
                         sau serviciilor
@@ -129,45 +129,45 @@
                 </tr>
 
                 <tr>
-                    <td >0</td>
-                    <td  colspan="2">1</td>
-                    <td >2</td>
-                    <td >3</td>
-                    <td >4</td>
-                    <td >5(3x4)</td>
+                    <td>0</td>
+                    <td colspan="2">1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5(3x4)</td>
                     <td>6</td>
                 </tr>
 
                 <tr>
-                    <td ></td>
+                    <td></td>
                     <td colspan="2">
                         <label></label>
-                        <input
+                        <input class="denprodus"
                                 type="text"
                                 name="denumire produs"
                         />
                     </td>
                     <td>
                         <label></label>
-                        <input type="text" name="um"/>
+                        <input class="um" type="text" name="um"/>
                     </td>
                     <td>
                         <label></label>
-                        <input
+                        <input class="cantitate"
                                 type="text"
                                 name="cantitate produse"
                         />
                     </td>
                     <td>
                         <label></label>
-                        <input
+                        <input class="pretunitarfaratva"
                                 type="text"
                                 name="pretul unitar al produselor"
                         />
                     </td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-danger">adauga</button>
+                    <td class="valoarealei"></td>
+                    <td class="valoareatvalei">
+                        <button type="button" class="btn btn-danger" onclick="myFunction()">adauga</button>
                     </td>
                 </tr>
                 <tr>
@@ -295,7 +295,26 @@
         </div>
     </div>
 </div>
-
+<script>
+    function myFunction() {
+        var table = document.getElementById("InvoiceTable");
+        var row = table.insertRow(0);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell2 = row.insertCell(2);
+        var cell2 = row.insertCell(3);
+        var cell2 = row.insertCell(4);
+        var cell2 = row.insertCell(5);
+        var cell2 = row.insertCell(6);
+        cell1.innerHTML = "NEW CELL1";
+        cell2.innerHTML = "NEW CELL2";
+        cell1.innerHTML = "NEW CELL3";
+        cell1.innerHTML = "NEW CELL4";
+        cell1.innerHTML = "NEW CELL5";
+        cell1.innerHTML = "NEW CELL6";
+        cell1.innerHTML = "NEW CELL7";
+    }
+</script>
 </body>
 
 <!--Copyright-->
