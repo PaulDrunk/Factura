@@ -29,14 +29,22 @@ table{
     width: 100%;
 }
 th,td{
+<<<<<<< HEAD
     padding: 10px 10px;
 }
 
 .row-height{
     height: 205px;
 }
+=======
+    padding: 10px 15px;
+}
+.row-height{
+    height: 205px;}
+>>>>>>> 2bbcd69e56a715348227f5035ddc056501d2bee4
 table.table-bordered > thead > tr > th{
     border:4px solid black;
+>>>>>>> 20d0a1138308b1b0e5fe6398a280dd175cfc3c5a
 }
 .btn-sm,
 .btn-group-sm>.btn {
@@ -67,6 +75,7 @@ table.table-bordered > thead > tr > th{
     position: absolute;
     bottom: 0;
 }
+<<<<<<< HEAD
 .emptyrows {
     border-left: 1px solid black;
     border-right: 1px solid black;
@@ -76,3 +85,5 @@ table.table-bordered > thead > tr > th{
 .um{
     width: 10px;
 }
+=======
+>>>>>>> 2bbcd69e56a715348227f5035ddc056501d2bee4
