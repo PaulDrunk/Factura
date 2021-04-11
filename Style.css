@@ -1,3 +1,4 @@
+
 body {
     background-color: lightgray;
     width: 100%;
@@ -103,6 +104,11 @@ table.table-bordered > thead > tr > th{
 }
 .pretunitarfaratva{
     width: 130px;
+    height: 20px;
+}
+.um
+{
+    width: 30px;
     height: 20px;
 }
 .valoarealei{
