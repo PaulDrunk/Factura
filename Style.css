@@ -19,7 +19,7 @@ body {
 
 
 table, th, td{
-    border: 2px solid black;
+    border: 1px solid black;
     text-align: center;
 }
 table{
@@ -27,7 +27,7 @@ table{
     width: 100%;
 }
 th,td{
-    padding: 0px 0px;
+    padding: 1px;
 }
 
 .row-height{
@@ -102,4 +102,33 @@ input
 {
     border-style: solid;
     border-color: rgb(162,162,162);
+}
+.class0
+{
+    width: 3px;
+    background-color: red;
+}
+.class1
+{
+    height:25px;
+    width: 1200px;
+
+
+    background-color: blue;
+}
+.class3
+{
+    background-color: violet;
+}
+.class4
+{
+    background-color: greenyellow;
+}
+.class5
+{
+    background-color: peru;
+}
+.class6
+{
+    background-color: darkblue;
 }
