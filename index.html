@@ -142,24 +142,16 @@
                 </tr>
 
                 <tr>
-<<<<<<< HEAD
                     <td id = "nr-crt"></td>
                     <td colspan="2">
                         <label></label>
                         <input class="denprodus" id = "denprodus"
-=======
-                    <td></td>
-                    <td colspan="2">
-                        <label></label>
-                        <input class="denprodus"
->>>>>>> d8ab0bf3a1c27a8a1c8dbb0eb47d9504fea19aa1
                                type="text"
                                name="denumire produs"
                         />
                     </td>
                     <td>
                         <label></label>
-<<<<<<< HEAD
                         <input class="um" type="text" id="um" name="um"/>
                     </td>
                     <td>
@@ -216,28 +208,6 @@
                     <td class="emptyrows">&nbsp;</td>
                     <td class="emptyrows">&nbsp;</td>
                     <td class="emptyrows">&nbsp;</td>
-=======
-                        <input class="um" type="text" name="um"/>
-                    </td>
-                    <td>
-                        <label></label>
-                        <input class="cantitate"
-                               type="text"
-                               name="cantitate produse"
-                        />
-                    </td>
-                    <td>
-                        <label></label>
-                        <input class="pretunitarfaratva"
-                               type="text"
-                               name="pretul unitar al produselor"
-                        />
-                    </td>
-                    <td class="valoarealei"></td>
-                    <td class="valoareatvalei">
-                        <button type="button" class="btn btn-danger" onclick="myFunction()" >Adauga</button>
-                    </td>
->>>>>>> d8ab0bf3a1c27a8a1c8dbb0eb47d9504fea19aa1
                 </tr>
                 <tr>
                     <td class="emptyrows">&nbsp;</td>
@@ -300,45 +270,6 @@
                     <td class="emptyrows">&nbsp;</td>
                     <td class="emptyrows">&nbsp;</td>
                     <td class="emptyrows">&nbsp;</td>
-<<<<<<< HEAD
-=======
-                    <td class="emptyrows">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows" colspan="2">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows" colspan="2">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows" colspan="2">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows" colspan="2">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
->>>>>>> d8ab0bf3a1c27a8a1c8dbb0eb47d9504fea19aa1
                     <td class="emptyrows">&nbsp;
                         <button type="button" class="btn btn-warning w-40 ml-3 mb-10" onclick="eraseRow()" >Sterge</button></td>
                 </tr>
@@ -369,7 +300,6 @@
     </div>
 </div>
 <script>
-<<<<<<< HEAD
     var counter = 0;
     const inpdenproduse = document.getElementById("denprodus");
     const inpum = document.getElementById("um");
@@ -421,34 +351,6 @@
         var table = document.getElementById("InvoiceTable");
         var rowCount = table.rows.length;
         table.deleteRow(rowCount - 14);
-=======
-    function myFunction() {
-        var table = document.getElementById("InvoiceTable");
-        var row = table.insertRow(3);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell2 = row.insertCell(2);
-        var cell2 = row.insertCell(3);
-        var cell2 = row.insertCell(4);
-        var cell2 = row.insertCell(5);
-        var cell2 = row.insertCell(6);
-        var cell2 = row.insertCell(7);
-        cell1.innerHTML = "NEW CELL1";
-        cell2.innerHTML = "NEW CELL2";
-        cell1.innerHTML = "NEW CELL3";
-        cell1.innerHTML = "NEW CELL4";
-        cell1.innerHTML = "NEW CELL5";
-        cell1.innerHTML = "NEW CELL6";
-        cell1.innerHTML = "NEW CELL7";
-    }
-
-    function eraseRow()
-    {
-            var table = document.getElementById("InvoiceTable");
-            var rowCount = table.rows.length;
-            table.deleteRow(rowCount -14);
-
->>>>>>> d8ab0bf3a1c27a8a1c8dbb0eb47d9504fea19aa1
     }
 </script>
 </body>

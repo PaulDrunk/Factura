@@ -73,7 +73,6 @@ table.table-bordered > thead > tr > th{
 }
 
 .um{
-<<<<<<< HEAD
     width: 35px;
 
 }
@@ -122,5 +121,4 @@ input
 {
     border-style: solid;
     border-color: rgb(162,162,162);
->>>>>>> d8ab0bf3a1c27a8a1c8dbb0eb47d9504fea19aa1
 }
