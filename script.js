@@ -1,25 +1,7 @@
 var counter = 0;
-function myFunction() {
-    var table = document.getElementById("InvoiceTable");
-    var row = table.insertRow(3);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-    var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
-    counter++;
-    cell1.innerHTML = counter;
-    cell2.innerHTML = "NEW CELL2";
-    cell3.innerHTML = "";
-    cell4.innerHTML = "NEW CELL4";
-    cell5.innerHTML = "NEW CELL5";
-    cell6.innerHTML = "NEW CELL6";
-    cell7.innerHTML = "NEW CELL7";
-    cell8.innerHTML = "NEW CELL8";
-}
+var totalfaratva =0;
+var totaltva =0;
+var total =0;
 function localstorage(){
     const inpdenproduse = document.getElementById("denprodus");
     const inpum = document.getElementById("um");
@@ -57,7 +39,8 @@ function insertFunction() {
     var cell8 = row.insertCell(7);
     cell3.style.borderLeft = "1px white";
     cell2.style.borderRight = "1px white";
-    cell1.innerHTML = counter + 1;
+
+    cell1.innerHTML = counter;
 
     var inpdenproduse = document.getElementById("denprodus").value;
     cell2.innerHTML = inpdenproduse;
@@ -76,14 +59,22 @@ function insertFunction() {
 
     var valoaretvalei =  0.16 * inpcantitate * inppretunitarfaratva;
     cell8.innerHTML = valoaretvalei;
+
+    totalfaratva += inppretunitarfaratva * inpcantitate;
+    totaltva += 0.16 * inppretunitarfaratva * inpcantitate;
+    total += totalfaratva + totaltva;
+
+    document.getElementById("totalleifaratva").innerHTML = totalfaratva;
+    document.getElementById("totalleitva").innerHTML = totaltva;
+    document.getElementById("totaldeplata").innerHTML = total;
 }
 function eraseRow()
 {
     if(counter == 0){
         return;
     }
+
     counter--;
     var table = document.getElementById("InvoiceTable");
-    var rowCount = table.rows.length;
-    table.deleteRow(rowCount - 14);
+    table.deleteRow(counter + 3);
 }

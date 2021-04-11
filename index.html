@@ -106,8 +106,8 @@
 
                 </div>
             </div>
-
-            <table id="InvoiceTable">
+            <form name="cart">
+            <table name="cart" id="InvoiceTable">
                 <tr>
                     <th class="">Nr.<br/>Crt.</th>
                     <th class="prodserv" colspan="2">
@@ -140,36 +140,36 @@
                     <td>6</td>
                 </tr>
 
-                <tr>
+                <tr name = "line_items">
                     <td id = "nr-crt"></td>
                     <td colspan="2">
                         <label></label>
-                        <input class="denprodus" id = "denprodus"
+                        <input name="prodname" class="denprodus" id = "denprodus"
                                type="text"
                                name="denumire produs"
                         />
                     </td>
                     <td>
                         <label></label>
-                        <input class="um" type="text" id="um" name="um"/>
+                        <input name="unitmasura"class="um" type="text" id="um" name="um"/>
                     </td>
                     <td>
                         <label></label>
-                        <input class="cantitate" id="cantitate"
+                        <input name="qty" class="cantitate" id="cantitate"
                                type="text"
                                name="cantitate produse"
                         />
                     </td>
                     <td>
                         <label></label>
-                        <input class="pretunitarfaratva" id = "pretunitfaratva"
+                        <input name="pieceprice" class="pretunitarfaratva" id = "pretunitfaratva"
                                type="text"
                                name="pretul unitar al produselor"
                         />
                     </td>
-                    <td class="valoarealei"></td>
-                    <td class="valoareatvalei">
-                        <button type="button" class="btn btn-danger" id="btninsert" onclick="insertFunction()">Adauga</button>
+                    <td name="item_total" jAutoCalc="{qty} * {price}"class="valoarealei"></td>
+                    <td name="valtvalei" class="valoareatvalei">
+                        <button type="button" class="btn btn-danger" id="btninsert" onclick="insertFunction()" onclick>Adauga</button>
                     </td>
                 </tr>
                 <tr>
@@ -298,8 +298,8 @@
                     </td>
                     <td colspan="3" rowspan="2"></td>
                     <td>Total</td>
-                    <td ></td>
-                    <td ></td>
+                    <td name="subtotal" jAutoCalc="SUM({item_total})" id = "totalleifaratva"></td>
+                    <td name="totaltaxe" jAutoCalc="{subtotal} * 0.16" id = "totalleitva"></td>
                 </tr>
 
                 <tr>
@@ -307,16 +307,19 @@
                         Semnatura<br/>
                         de primire
                     </td>
-                    <td colspan="2" class="alignleft">
+                    <td colspan="2" name="total" jAutoCalc="{subtotal} + {totaltaxe}" id = "totaldeplata" class="totalpreturi" >
                         Total de plata
                     </td>
                 </tr>
 
             </table>
+            </form>
         </div>
     </div>
 </div>
 <script type="text/javascript" src="script.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jautocalc.js"></script>
 </body>
 
 <!--Copyright-->

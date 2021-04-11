@@ -43,9 +43,6 @@ table.table-bordered > thead > tr > th{
     line-height: 1.5;
     border-radius: .2rem
 }
-.alignleft{
-    text-align: left;
-}
 
 .navbar-nav > li{
     padding-left:30px;
@@ -115,6 +112,8 @@ table.table-bordered > thead > tr > th{
 .valoareatvalei{
     width: 130px;
     height: 20px;
+}
+.totalpreturi{
 }
 input
 {
