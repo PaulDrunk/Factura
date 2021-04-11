@@ -74,7 +74,7 @@ function insertFunction() {
 
     cell7.innerHTML = inpcantitate * inppretunitarfaratva;
 
-    var valoaretvalei =  0.1 * inpcantitate * inppretunitarfaratva;
+    var valoaretvalei =  0.16 * inpcantitate * inppretunitarfaratva;
     cell8.innerHTML = valoaretvalei;
 }
 function eraseRow()
