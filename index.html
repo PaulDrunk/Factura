@@ -2,12 +2,20 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
       xmlns="http://www.w3.org/1999/html">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="Style.css">
     <meta charset="UTF-8">
     <title>Factura</title>
+
+    <script type="text/javascript" src="script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
 </head>
 
 <body>
@@ -20,11 +28,16 @@
                 <img src="images/factura.jpg" alt="factura logo" height="30px">
                 <strong>FACTURA</strong>
             </a>
+
             <!-- Navbar dreapta-->
             <nav class="my-3">
                 <a class="p-2 text-white" href="index.html" target="_blank">
                     Factura noua</a>
-                <a class="p-2 text-dark" href="#"></a>
+
+                <button onclick="getPDF()" id="downloadbtn" class="btn btn-primary">
+                    <b>Download  as PDF</b>
+                </button>
+
                 <a class="p-2 text-dark" href="#"></a>
                 <a class="p-2 text-white" href="javascript:if(window.print)window.print()">
                     Tiparire</a>
@@ -33,7 +46,7 @@
     </div>
 </header>
 
-<div class="container">
+<div class="container div_pdf">
     <div class="card">
         <div class="card-body">
             <div class="row mb-4">
@@ -71,7 +84,7 @@
                                 <label class=" mr-4">
                                     Data:
                                 </label>
-                                <input type="text ">
+                                <input type="text">
 
                             </div>
 
@@ -79,7 +92,7 @@
                                 <label class="mr-2">
                                     Nr aviz:
                                 </label>
-                                <input type="text ">
+                                <input type="number">
 
                             </div>
 
@@ -89,7 +102,7 @@
                 </div>
                 <!--Text-area dreapta-->
                 <div class="col-sm-4">
-                    <h6 align="center left">
+                    <h6>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;
@@ -106,8 +119,8 @@
 
                 </div>
             </div>
-            <form name="cart">
-            <table name="cart" id="InvoiceTable">
+
+            <table id="InvoiceTable">
                 <tr>
                     <th class="">Nr.<br/>Crt.</th>
                     <th class="prodserv" colspan="2">
@@ -140,55 +153,37 @@
                     <td>6</td>
                 </tr>
 
-                <tr name = "line_items">
+                <tr>
                     <td id = "nr-crt"></td>
                     <td colspan="2">
                         <label></label>
-                        <input name="prodname" class="denprodus" id = "denprodus"
+                        <input class="denprodus" id = "denprodus"
                                type="text"
                                name="denumire produs"
                         />
                     </td>
                     <td>
                         <label></label>
-                        <input name="unitmasura"class="um" type="text" id="um" name="um"/>
+                        <input class="um" type="number" id="um" name="um"/>
                     </td>
                     <td>
                         <label></label>
-                        <input name="qty" class="cantitate" id="cantitate"
-                               type="text"
+                        <input class="cantitate" id="cantitate"
+                               type="number"
                                name="cantitate produse"
                         />
                     </td>
-                    <td>
+                    <td >
                         <label></label>
-                        <input name="pieceprice" class="pretunitarfaratva" id = "pretunitfaratva"
-                               type="text"
+                        <input class="pretunitarfaratva" id = "pretunitfaratva"
+                               type="number"
                                name="pretul unitar al produselor"
                         />
                     </td>
-                    <td name="item_total" jAutoCalc="{qty} * {price}"class="valoarealei"></td>
-                    <td name="valtvalei" class="valoareatvalei">
-                        <button type="button" class="btn btn-danger" id="btninsert" onclick="insertFunction()" onclick="localstorage()">Adauga</button>
+                    <td class="valoarealei"></td>
+                    <td class="valoareatvalei" id="valoareatvalei">
+                        <button type="button" class="btn btn-danger" id="btninsert" onclick="insertFunction()">Adauga</button>
                     </td>
-                </tr>
-                <tr>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows" colspan="2">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows" colspan="2">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
-                    <td class="emptyrows">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="emptyrows">&nbsp;</td>
@@ -288,7 +283,11 @@
                     <td class="emptyrows">&nbsp;</td>
                     <td class="emptyrows">&nbsp;</td>
                     <td class="emptyrows">&nbsp;
-                        <button type="button" class="btn btn-warning w-40 ml-3 mb-10" onclick="eraseRow()" >Sterge</button></td>
+                        <button type="button" class="btn btn-warning w-40 ml-3 mb-10 "
+                                onclick="eraseRow()">
+                            Sterge
+                        </button>
+                    </td>
                 </tr>
 
                 <tr>
@@ -296,10 +295,21 @@
                         Semnatura<br/>
                         furnizor
                     </td>
-                    <td colspan="3" rowspan="2"></td>
+                    <td colspan="3" rowspan="2" ></td>
                     <td>Total</td>
-                    <td name="subtotal" jAutoCalc="SUM({item_total})" id = "totalleifaratva"></td>
-                    <td name="totaltaxe" jAutoCalc="{subtotal} * 0.16" id = "totalleitva"></td>
+                    <td >
+                        <div style="background-color:rgb(246,213,92);
+                             display:inline-block;font-size: 25px;
+                             margin-top:10px"
+                             id="afisare1" >
+
+                        </div>
+                    </td>
+                    <td >
+                        <p style="background-color:rgb(246,213,92);display:inline-block;font-size: 25px;margin-top:10px" id="afisare2">
+
+                        </p>
+                    </td>
                 </tr>
 
                 <tr>
@@ -307,17 +317,20 @@
                         Semnatura<br/>
                         de primire
                     </td>
-                    <td colspan="2" name="total" jAutoCalc="{subtotal} + {totaltaxe}" id = "totaldeplata" class="totalpreturi" >
-                        Total de plata
+                    <td colspan="2" class="alignleft">
+                        Total de plata:
+                        <p style="background-color:rgb(246,213,92);display:inline-block;font-size: 25px;margin-top:10px"
+                           id="total">
+
+                        </p>
                     </td>
                 </tr>
 
             </table>
-            </form>
         </div>
+
     </div>
 </div>
-<script type="text/javascript" src="script.js"></script>
 </body>
 
 <!--Copyright-->

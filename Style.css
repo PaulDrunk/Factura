@@ -1,4 +1,9 @@
-
+@media print {
+    .d-print-none
+    {
+        display: none !important;
+    }
+}
 body {
     background-color: lightgray;
     width: 100%;
@@ -43,6 +48,9 @@ table.table-bordered > thead > tr > th{
     font-size: .765625rem;
     line-height: 1.5;
     border-radius: .2rem
+}
+.alignleft{
+    text-align: left;
 }
 
 .navbar-nav > li{
@@ -118,8 +126,6 @@ table.table-bordered > thead > tr > th{
 .valoareatvalei{
     width: 130px;
     height: 20px;
-}
-.totalpreturi{
 }
 input
 {
