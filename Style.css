@@ -1,4 +1,9 @@
-
+@media print {
+    .d-print-none
+    {
+        display: none !important;
+    }
+}
 body {
     background-color: lightgray;
     width: 100%;
