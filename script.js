@@ -8,21 +8,19 @@ function localstorage(){
     const inpcantitate = document.getElementById("cantitate");
     const inppretunitarfaratva = document.getElementById("pretunitfaratva");
     const insertbtn = document.getElementById("btninsert");
-    insertbtn.onclick = function () {
-        const denproduse = inpdenproduse.value;
-        const um = inpum.value;
-        const cantitate = inpcantitate.value;
-        const pretunitarfaratva = inppretunitarfaratva.value;
+    const denproduse = inpdenproduse.value;
+    const um = inpum.value;
+    const cantitate = inpcantitate.value;
+    const pretunitarfaratva = inppretunitarfaratva.value;
 
-        console.log(denproduse);
-        console.log(um);
-        console.log(cantitate);
-        console.log(pretunitarfaratva);
+    console.log(denproduse);
+    console.log(um);
+    console.log(cantitate);
+    console.log(pretunitarfaratva);
 
-        if (denproduse && um && cantitate && pretunitarfaratva) {
-            localStorage.setItem(denproduse, um, cantitate, pretunitarfaratva);
-            location.reload();
-        }
+    if (denproduse && um && cantitate && pretunitarfaratva) {
+        localStorage.setItem(denproduse, um, cantitate, pretunitarfaratva);
+        location.reload();
     }
 }
 function insertFunction() {
