@@ -73,6 +73,7 @@ table.table-bordered > thead > tr > th{
 }
 
 .um{
+<<<<<<< HEAD
     width: 35px;
 
 }
@@ -91,4 +92,35 @@ table.table-bordered > thead > tr > th{
 }
 .valoareatvalei{
     width: 130px;
+=======
+    width: 45px;
+    height: 20px;
+
+}
+.denprodus{
+    width: 350px;
+    height: 20px;
+
+}
+.cantitate{
+    width: 100px;
+    height: 20px;
+}
+.pretunitarfaratva{
+    width: 130px;
+    height: 20px;
+}
+.valoarealei{
+    width: 130px;
+    height: 20px;
+}
+.valoareatvalei{
+    width: 130px;
+    height: 20px;
+}
+input
+{
+    border-style: solid;
+    border-color: rgb(162,162,162);
+>>>>>>> d8ab0bf3a1c27a8a1c8dbb0eb47d9504fea19aa1
 }
