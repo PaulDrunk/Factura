@@ -2,15 +2,20 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
       xmlns="http://www.w3.org/1999/html">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="Style.css">
     <meta charset="UTF-8">
     <title>Factura</title>
+
+    <script type="text/javascript" src="script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
 </head>
 
 <body>
@@ -23,11 +28,16 @@
                 <img src="images/factura.jpg" alt="factura logo" height="30px">
                 <strong>FACTURA</strong>
             </a>
+
             <!-- Navbar dreapta-->
             <nav class="my-3">
                 <a class="p-2 text-white" href="index.html" target="_blank">
                     Factura noua</a>
-                <a class="p-2 text-dark" href="#"></a>
+
+                <button onclick="getPDF()" id="downloadbtn" class="btn btn-primary">
+                    <b>Download  as PDF</b>
+                </button>
+
                 <a class="p-2 text-dark" href="#"></a>
                 <a class="p-2 text-white" href="javascript:if(window.print)window.print()">
                     Tiparire</a>
@@ -36,7 +46,7 @@
     </div>
 </header>
 
-<div class="container">
+<div class="container div_pdf">
     <div class="card">
         <div class="card-body">
             <div class="row mb-4">
@@ -74,7 +84,7 @@
                                 <label class=" mr-4">
                                     Data:
                                 </label>
-                                <input type="text ">
+                                <input type="text">
 
                             </div>
 
@@ -82,7 +92,7 @@
                                 <label class="mr-2">
                                     Nr aviz:
                                 </label>
-                                <input type="text ">
+                                <input type="number">
 
                             </div>
 
@@ -92,7 +102,7 @@
                 </div>
                 <!--Text-area dreapta-->
                 <div class="col-sm-4">
-                    <h6 align="center left">
+                    <h6>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;
@@ -144,35 +154,35 @@
                 </tr>
 
                 <tr>
-                    <td></td>
+                    <td id = "nr-crt"></td>
                     <td colspan="2">
                         <label></label>
-                        <input class="denprodus"
+                        <input class="denprodus" id = "denprodus"
                                type="text"
                                name="denumire produs"
                         />
                     </td>
                     <td>
                         <label></label>
-                        <input class="um" type="text" name="um"/>
+                        <input class="um" type="number" id="um" name="um"/>
                     </td>
                     <td>
                         <label></label>
-                        <input class="cantitate"
+                        <input class="cantitate" id="cantitate"
                                type="text"
                                name="cantitate produse"
                         />
                     </td>
-                    <td>
+                    <td >
                         <label></label>
-                        <input class="pretunitarfaratva"
+                        <input class="pretunitarfaratva" id = "pretunitfaratva"
                                type="text"
                                name="pretul unitar al produselor"
                         />
                     </td>
                     <td class="valoarealei"></td>
-                    <td class="valoareatvalei">
-                        <button type="button" class="btn btn-danger" onclick="myFunction()" >Adauga</button>
+                    <td class="valoareatvalei" id="valoareatvalei">
+                        <button type="button" class="btn btn-danger" id="btninsert" onclick="insertFunction()">Adauga</button>
                     </td>
                 </tr>
                 <tr>
@@ -273,7 +283,11 @@
                     <td class="emptyrows">&nbsp;</td>
                     <td class="emptyrows">&nbsp;</td>
                     <td class="emptyrows">&nbsp;
-                        <button type="button" class="btn btn-warning w-40 ml-3 mb-10" onclick="eraseRow()" >Sterge</button></td>
+                        <button type="button" class="btn btn-warning w-40 ml-3 mb-10 "
+                                onclick="eraseRow()">
+                            Sterge
+                        </button>
+                    </td>
                 </tr>
 
                 <tr>
@@ -281,10 +295,21 @@
                         Semnatura<br/>
                         furnizor
                     </td>
-                    <td colspan="3" rowspan="2"></td>
+                    <td colspan="3" rowspan="2" ></td>
                     <td>Total</td>
-                    <td ></td>
-                    <td ></td>
+                    <td >
+                        <div style="background-color:rgb(246,213,92);
+                             display:inline-block;font-size: 25px;
+                             margin-top:10px"
+                        id="afisare1" >
+
+                        </div>
+                    </td>
+                    <td >
+                        <p style="background-color:rgb(246,213,92);display:inline-block;font-size: 25px;margin-top:10px" id="afisare2">
+
+                        </p>
+                    </td>
                 </tr>
 
                 <tr>
@@ -293,66 +318,19 @@
                         de primire
                     </td>
                     <td colspan="2" class="alignleft">
-                        Total de plata
+                        Total de plata:
+                        <p style="background-color:rgb(246,213,92);display:inline-block;font-size: 25px;margin-top:10px"
+                        id="total">
+
+                        </p>
                     </td>
                 </tr>
 
             </table>
         </div>
+
     </div>
 </div>
-<script>
-    var index = 1;
-    function myFunction() {
-        var table = document.getElementById("InvoiceTable");
-        var rowCount =table.rows.lenght;
-        var row = table.insertRow(3);
-        var cell0 = row.insertCell(0);
-        var cell1 = row.insertCell(1);
-        var cell2 = row.insertCell(2);
-        var cell3 = row.insertCell(3);
-        var cell4 = row.insertCell(4);
-        var cell5 = row.insertCell(5);
-        var cell6 = row.insertCell(6);
-        var cell7 = row.insertCell(7);
-
-        cell0.className =   'class0';
-        cell1.className =   'class1';
-        cell2.className =  'class2';
-        cell3.className  =  'class3';
-        cell4.className  =  'class4';
-        cell5.className  =  'class5';
-        cell6.className  =  'class6';
-
-       /* var t0=document.createElement("input");
-        t0.id = "txtName"+index;
-        cell0.appendChild(t0);
-        t0.setAttribute('style','width:80%;height:100%;border-top:0px');
-        var t1=document.createElement("input");
-        t1.id = "txtName"+index;
-        cell1.appendChild(t1);
-
-        var t3=document.createElement("input");
-        t3.id = "txtGender"+index;
-        cell3.appendChild(t3);
-
-        var t4=document.createElement("input");
-        t4.id = "txtOccupation"+index;
-        cell4.appendChild(t4);
-*/
-
-        index++;
-
-    }
-
-    function eraseRow()
-    {
-            let table = document.getElementById("InvoiceTable");
-            let rowCount = table.rows.length;
-            table.deleteRow(rowCount -14);
-
-    }
-</script>
 </body>
 
 <!--Copyright-->
