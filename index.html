@@ -54,7 +54,7 @@
                 <div class="col-sm-3">
                     <h6 align="left" class="mb-2">Furnizor:</h6>
                     <label style="float: left" class="form-label text-left">
-                        <textarea
+                        <textarea id="furnizor" onclick="loadDoc()"
                                 class="form-control input"
                                 rows="4" style="resize: none;
                                 height: 200px;width: 250px;
@@ -77,14 +77,14 @@
                                 <label class="mr-4">
                                     Nr:&nbsp;&nbsp;&nbsp;
                                 </label>
-                                <input type="text">
+                                <input id="numar" onclick="validatenumber()" type="text">
                             </div>
 
                             <div class="control-group">
                                 <label class=" mr-4">
                                     Data:
                                 </label>
-                                <input type="text">
+                                <input id="data" onclick="validatedata()" type="text">
 
                             </div>
 
@@ -92,7 +92,7 @@
                                 <label class="mr-2">
                                     Nr aviz:
                                 </label>
-                                <input type="number">
+                                <input id="numaraviz" onclick="validateaviz()" type="number">
 
                             </div>
 

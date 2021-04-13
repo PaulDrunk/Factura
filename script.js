@@ -1,30 +1,8 @@
-
 var counter = 0;
 var valoare=0;
 valoareTVA=0;
 var valoareTotal=0;
 
-function myFunction() {
-    var table = document.getElementById("InvoiceTable");
-    var row = table.insertRow(3);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-    var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
-    counter++;
-    cell1.innerHTML = counter;
-    cell2.innerHTML = "NEW CELL2";
-    cell3.innerHTML = "";
-    cell4.innerHTML = "NEW CELL4";
-    cell5.innerHTML = "NEW CELL5";
-    cell6.innerHTML = "NEW CELL6";
-    cell7.innerHTML = "NEW CELL7";
-    cell8.innerHTML = "NEW CELL8";
-}
 function localstorage(){
     const inpdenproduse = document.getElementById("denprodus");
     const inpum = document.getElementById("um");
@@ -47,6 +25,61 @@ function localstorage(){
             location.reload();
         }
     }
+}
+function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            document.getElementById("furnizor").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send();
+}
+
+function validatenumber(){
+    var numar = document.getElementById('numar');
+    numar.addEventListener('input', function (e){
+        var pattern = /^[\d]{6,8}$/;
+        var currentValue = e.target.value;
+        var valid = pattern.test(currentValue);
+        if(valid){
+            console.log("VALID");
+        }
+        else {
+            console.log("INVALID");
+        }
+    })
+}
+
+function validatedata(){
+    var data = document.getElementById('data');
+    data.addEventListener('input', function (e){
+        var pattern = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+        var currentValue = e.target.value;
+        var valid = pattern.test(currentValue);
+        if(valid){
+            console.log("VALID");
+        }
+        else {
+            console.log("INVALID");
+        }
+    })
+}
+
+function validateaviz(){
+    var numaraviz = document.getElementById('numaraviz');
+    numaraviz.addEventListener('input', function (e){
+        var pattern = /^[\d]{6,8}$/;
+        var currentValue = e.target.value;
+        var valid = pattern.test(currentValue);
+        if(valid){
+            console.log("VALID");
+        }
+        else {
+            console.log("INVALID");
+        }
+    })
 }
 function insertFunction() {
     counter++;
