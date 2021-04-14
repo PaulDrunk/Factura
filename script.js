@@ -4,24 +4,37 @@ valoareTVA=0;
 var valoareTotal=0;
 
 function localstorage(){
+    const inpnrcrt = document.getElementById("nr-crt");
     const inpdenproduse = document.getElementById("denprodus");
     const inpum = document.getElementById("um");
     const inpcantitate = document.getElementById("cantitate");
     const inppretunitarfaratva = document.getElementById("pretunitfaratva");
+    const inpvaloarelei = document.getElementById("valoarelei");
+    const inpvaloaretvalei = document.getElementById("valoareatvalei");
     const insertbtn = document.getElementById("btninsert");
     insertbtn.onclick = function () {
+        const nrcrt = inpnrcrt.value;
         const denproduse = inpdenproduse.value;
         const um = inpum.value;
         const cantitate = inpcantitate.value;
         const pretunitarfaratva = inppretunitarfaratva.value;
-
+        const valoarelei = inpvaloarelei.value;
+        const valoaretvalei = inpvaloaretvalei.value;
+        console.log(nrcrt);
         console.log(denproduse);
         console.log(um);
         console.log(cantitate);
         console.log(pretunitarfaratva);
-
-        if (denproduse && um && cantitate && pretunitarfaratva) {
-            localStorage.setItem(denproduse, um, cantitate, pretunitarfaratva);
+        // console.log(valoarelei);
+        // console.log(valoaretvalei);
+        if (nrcrt && denproduse && um && cantitate && pretunitarfaratva && valoarelei && valoaretvalei) {
+            localStorage.setItem("Nr. Crt.", nrcrt);
+            localStorage.setItem("Denumire produs si servicii", denproduse);
+            localStorage.setItem("U.M.", um);
+            localStorage.setItem("Cantitate", cantitate);
+            localStorage.setItem("Pret Unitar fara TVA", pretunitarfaratva);
+            localStorage.setItem("Valoare Lei", valoarelei);
+            localStorage.setItem("Valoare TVA Lei", valoaretvalei);
             location.reload();
         }
     }
