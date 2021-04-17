@@ -1,9 +1,9 @@
 var counter = 0;
-var valoare=0;
-valoareTVA=0;
-var valoareTotal=0;
+var valoare = 0;
+var valoareTVA = 0;
+var valoareTotal = 0;
+function savetolocalstorage() {
 
-function localstorage(){
     const inpnrcrt = document.getElementById("nr-crt");
     const inpdenproduse = document.getElementById("denprodus");
     const inpum = document.getElementById("um");
@@ -11,8 +11,9 @@ function localstorage(){
     const inppretunitarfaratva = document.getElementById("pretunitfaratva");
     const inpvaloarelei = document.getElementById("valoarelei");
     const inpvaloaretvalei = document.getElementById("valoareatvalei");
-    const insertbtn = document.getElementById("btninsert");
-    insertbtn.onclick = function () {
+    const savebtn = document.getElementById("savebtn");
+
+    savebtn.onclick = function () {
         const nrcrt = inpnrcrt.value;
         const denproduse = inpdenproduse.value;
         const um = inpum.value;
@@ -20,28 +21,24 @@ function localstorage(){
         const pretunitarfaratva = inppretunitarfaratva.value;
         const valoarelei = inpvaloarelei.value;
         const valoaretvalei = inpvaloaretvalei.value;
-        console.log(nrcrt);
-        console.log(denproduse);
-        console.log(um);
-        console.log(cantitate);
-        console.log(pretunitarfaratva);
-        // console.log(valoarelei);
-        // console.log(valoaretvalei);
-        if (nrcrt && denproduse && um && cantitate && pretunitarfaratva && valoarelei && valoaretvalei) {
-            localStorage.setItem("Nr. Crt.", nrcrt);
-            localStorage.setItem("Denumire produs si servicii", denproduse);
-            localStorage.setItem("U.M.", um);
-            localStorage.setItem("Cantitate", cantitate);
-            localStorage.setItem("Pret Unitar fara TVA", pretunitarfaratva);
-            localStorage.setItem("Valoare Lei", valoarelei);
-            localStorage.setItem("Valoare TVA Lei", valoaretvalei);
-            location.reload();
+        let options = {
+            "Nr. Crt.": nrcrt,
+            "Denumire produs si servicii": denproduse,
+            "U.M.": um,
+            "Cantitate": cantitate,
+            "Pret Unitar fara TVA": pretunitarfaratva,
+            "Valoare Lei": valoarelei,
+            "Valoare TVA Lei": valoaretvalei
         }
+        let str = JSON.stringify(options);
+        localStorage.setItem("Factura", str);
     }
 }
+
+
 function loadDoc() {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             document.getElementById("furnizor").innerHTML = this.responseText;
         }
@@ -50,50 +47,48 @@ function loadDoc() {
     xhttp.send();
 }
 
-function validatenumber(){
+function validatenumber() {
     var numar = document.getElementById('numar');
-    numar.addEventListener('input', function (e){
+    numar.addEventListener('input', function (e) {
         var pattern = /^[\d]{6,8}$/;
         var currentValue = e.target.value;
         var valid = pattern.test(currentValue);
-        if(valid){
+        if (valid) {
             console.log("VALID");
-        }
-        else {
+        } else {
             console.log("INVALID");
         }
     })
 }
 
-function validatedata(){
+function validatedata() {
     var data = document.getElementById('data');
-    data.addEventListener('input', function (e){
+    data.addEventListener('input', function (e) {
         var pattern = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
         var currentValue = e.target.value;
         var valid = pattern.test(currentValue);
-        if(valid){
+        if (valid) {
             console.log("VALID");
-        }
-        else {
+        } else {
             console.log("INVALID");
         }
     })
 }
 
-function validateaviz(){
+function validateaviz() {
     var numaraviz = document.getElementById('numaraviz');
-    numaraviz.addEventListener('input', function (e){
+    numaraviz.addEventListener('input', function (e) {
         var pattern = /^[\d]{6,8}$/;
         var currentValue = e.target.value;
         var valid = pattern.test(currentValue);
-        if(valid){
+        if (valid) {
             console.log("VALID");
-        }
-        else {
+        } else {
             console.log("INVALID");
         }
     })
 }
+
 function insertFunction() {
     counter++;
     var table = document.getElementById("InvoiceTable");
@@ -122,34 +117,30 @@ function insertFunction() {
     cell4.innerHTML = inpum;
 //Cantitate
     var inpcantitate = parseInt(document.getElementById("cantitate").value);
-    if(isNaN(inpcantitate)){
+    if (isNaN(inpcantitate)) {
         inpcantitate = 0;
-    }
-    else {
+    } else {
         cell5.innerHTML = inpcantitate;
     }
 //Pret unitar
     var inppretunitarfaratva = parseInt(document.getElementById("pretunitfaratva").value);
-    if(isNaN(inppretunitarfaratva)){
+    if (isNaN(inppretunitarfaratva)) {
         inppretunitarfaratva = 0;
-    }
-    else {
+    } else {
         cell6.innerHTML = inppretunitarfaratva;
     }
 
     cell7.innerHTML = inpcantitate * inppretunitarfaratva;
 
 //Pret cu tva
-    var valoaretvalei =  0.1 * inpcantitate * inppretunitarfaratva;
+    var valoaretvalei = 0.1 * inpcantitate * inppretunitarfaratva;
 
     cell8.innerHTML = valoaretvalei;
-    valoareTVA=valoareTVA+valoaretvalei;
-    var adunare= inpcantitate * inppretunitarfaratva;
+    valoareTVA = valoareTVA + valoaretvalei;
+    var adunare = inpcantitate * inppretunitarfaratva;
 
-    valoare=valoare+parseInt(adunare);
-    valoareTotal=valoareTotal+valoare+valoareTVA;
-
-    console.log(valoare);
+    valoare = valoare + parseInt(adunare);
+    valoareTotal = valoareTotal + valoare + valoareTVA;
 
     document.getElementById("afisare2").innerHTML = valoareTVA;
 
@@ -157,9 +148,9 @@ function insertFunction() {
     document.getElementById("total").innerHTML = parseInt(valoareTotal);
 
 }
-function eraseRow()
-{
-    if(counter == 0){
+
+function eraseRow() {
+    if (counter == 0) {
         return;
     }
     counter--;
@@ -168,33 +159,33 @@ function eraseRow()
     table.deleteRow(rowCount - 14);
 }
 
-function getPDF(){
+function getPDF() {
 
     var HTMLWidth = $(".div_pdf").width();
     var HTMLHeight = $(".div_pdf").height();
     var top_left_margin = 15;
-    var PDFWidth = HTMLWidth+(top_left_margin*2);
-    var PDFHeight = (PDFWidth*1.5)+(top_left_margin*2);
+    var PDFWidth = HTMLWidth + (top_left_margin * 2);
+    var PDFHeight = (PDFWidth * 1.5) + (top_left_margin * 2);
     var canvas_image_width = HTMLWidth;
     var canvas_image_height = HTMLHeight;
 
-    var totalPDFPages = Math.ceil(HTMLHeight/PDFHeight)-1;
+    var totalPDFPages = Math.ceil(HTMLHeight / PDFHeight) - 1;
 
 
-    html2canvas($(".div_pdf")[0],{allowTaint:true}).then(function(canvas) {
+    html2canvas($(".div_pdf")[0], {allowTaint: true}).then(function (canvas) {
         canvas.getContext('2d');
 
-        console.log(canvas.height+"  "+canvas.width);
+        console.log(canvas.height + "  " + canvas.width);
 
 
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
-        var pdf = new jsPDF('p', 'pt',  [PDFWidth, PDFHeight]);
-        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin,canvas_image_width,canvas_image_height);
+        var pdf = new jsPDF('p', 'pt', [PDFWidth, PDFHeight]);
+        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
 
 
         for (var i = 1; i <= totalPDFPages; i++) {
             pdf.addPage(PDFWidth, PDFHeight);
-            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDFHeight*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDFHeight * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
         }
 
         pdf.save("Factura.pdf");

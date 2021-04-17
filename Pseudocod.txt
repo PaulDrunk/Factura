@@ -1,0 +1,142 @@
+
+									Pseudocod
+
+	counter <- 0
+	valoare <- 0
+	valoareTVA <- 0;
+	var valoareTotal <- 0;
+	
+	Functia loadDoc
+
+		xhttp <- new XMLHttpRequest()
+		xhttp.onreadystatechange <- functie(){
+		daca (this.readyState = 4 && this.status = 200) atunci
+			campFurnizor = this.responseText;
+		};	
+		xhttp.open("GET", "ajax_info.txt", true)
+		xhttp.send()
+	
+	Functia validatenumber
+		
+		numar <- document.getElementbyId('numar')
+		numar.addEventListener('input', function(Eveniment e){
+			pattern <- /^[\d]{6,8}$/	(camp format din 6, 7 sau 8 cifre)
+			currentValue <- e.target.value
+			valid <- pattern.test(currentValue)
+			daca valid  =  true
+				afiseaza VALID
+			altfel
+				afiseaza INVALID
+		})
+
+	Functia validatedata
+
+		data <- document.getElementbyId('data')
+		data.addEventListener('input', function(Eveniment e){
+			/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/	(ex: 21/02/2007)
+			currentValue <- e.target.value
+			valid <- pattern.test(currentValue)
+			daca valid  =  true
+				afiseaza VALID
+			altfel
+				afiseaza INVALID
+		})
+	
+	Functia validateaviz
+
+		numaraviz <- document.getElementbyId('numaraviz')
+		numaraviz.addEventListener('input', function(Eveniment e){
+			pattern <- /^[\d]{6,8}$/	(camp format din 6, 7 sau 8 cifre)
+			currentValue <- e.target.value
+			valid <- pattern.test(currentValue)
+			daca valid  =  true
+				afiseaza VALID
+			altfel
+				afiseaza INVALID
+		})
+
+	Functia insertFunction
+	
+		counter <-  counter + 1
+		table <- document.getElementById("InvoiceTable")
+		row <- table.insertRow(counter + 2)
+		cell1 <- row.insertCell(0);
+		cell2 <- row.insertCell(1);
+		cell3 <- row.insertCell(2);
+		cell4 <- row.insertCell(3);
+		cell5 <- row.insertCell(4);
+		cell6 <- row.insertCell(5);
+		cell7 <- row.insertCell(6);
+		cell8 <- row.insertCell(7);
+		
+		cell3.style.borderLeft <- 1px white
+		cell2.style.borderRight <- 1px white
+
+		cell1.innerHTML <- counter
+
+		inpdenproduse <- document.getElementById("denprodus").value
+		cell2.innerHTML <- inpdenproduse
+
+		cell3.innerHTML <- ""
+
+		inpum <- document.getElementByID("um").value
+		cell4.innerHTML <- inpum
+
+		inpcantitate <-  parseInt(document.getElementById("cantitate").value)
+		daca inpcantitate nu este un numar atunci
+			inpcantitate <- 0
+		altfel
+			cell5.innerHTML <- inpcantitate
+		inppretunitarfaratva <- parseInt(document.getElementById("pretunitfaratva").value)
+		daca inppretunitarfaratva nu este un numar atunci
+			inppretunitarfaratva <- 0
+		altfel
+			cell6.innerHTML <- inppretunitarfaratva
+		cell7.innerHTML <- inpcantitate * inppretunitarfaratva
+		
+		valoaretvalei <- 0.1 * inpcantitate * inppretunitarfaratva
+		
+		cell8.innerHTML <- valoaretvalei
+		valoareTVA <- valoareTVA + valoaretvalei
+		adunare <- inpcantitate * inppretunitarfaratva
+
+		valoare <- valoare + parseInt(adunare)
+		valoareTotal <- valoareTotal + valoare + valoareTVA
+
+		afiseaza(valoare)
+		document.getElementById(afisare2).innerHTML <- valoareTVA
+		document.getElementById(afisare1).innerHTML <- valoare
+		document.getElementById(total).innerHTML <- parseInt(valoareTotal)
+
+	Functia eraseRow
+		
+		daca counter = 0	//apel de sistem(iesire)
+		counter <- counter - 1
+		table <- document.getElementById(InvoiceTable)
+		rowCount <- table.rows.length 		//numarul de randuri
+		table.deleteRow(rowCount - 14)
+
+	Functia getPDF
+	
+		 HTMLWidth <- $(".div_pdf").width();	
+		 HTMLHeight <- $(".div_pdf").height();
+    		 top_left_margin <- 15;
+    		PDFWidth <- HTMLWidth+(top_left_margin*2);
+    		PDFHeight <- (PDFWidth*1.5)+(top_left_margin*2);
+   	 	canvas_image_width <- HTMLWidth;
+    		canvas_image_height <- HTMLHeight;
+
+		 totalPDFPages <- Math.ceil(HTMLHeight/PDFHeight)-1;
+
+     		 html2canvas($(".div_pdf")[0],{allowTaint:true}).then(function(canvas) {
+       			canvas.getContext('2d');
+        			afiseaza canvas.height+"  "+canvas.width;
+        			imgData = canvas.toDataURL("image/jpeg", 1.0);
+        			pdf = new jsPDF('p', 'pt',  [PDFWidth, PDFHeight]);
+        			pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin,canvas_image_width,canvas_image_height);
+			pentru i <- 1 : totalPDFPages; i <- i + 1 {
+            				pdf.addPage(PDFWidth, PDFHeight);
+            				pdf.addImage(imgData, 'JPG', top_left_margin, -(PDFHeight*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+ 			}
+        			pdf.save("Factura.pdf");
+    		});	
